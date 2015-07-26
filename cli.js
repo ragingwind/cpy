@@ -35,7 +35,14 @@ function errorHandler(err) {
 }
 
 try {
-	cpy([cli.input[0]], cli.input[1], {
+	var src = [cli.input[0]];
+	if (cli.flags.ignore) {
+		src = src.concat(cli.flags.ignore.split(',').map(function (file) {
+			return '!' + file;
+		}));
+	}
+
+	cpy(src, cli.input[1], {
 		cwd: cli.flags.cwd || process.cwd(),
 		rename: cli.flags.rename,
 		parents: cli.flags.parents,
