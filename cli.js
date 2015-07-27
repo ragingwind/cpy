@@ -16,6 +16,7 @@ var cli = meow({
 		'  --parents            Preseve path structure',
 		'  --cwd=<dir>          Working directory for source files',
 		'  --rename=<filename>  Rename all <source> filenames to <filename>',
+		'  --ignore=<filename>  Ignore source files',
 		'',
 		'<source> can contain globs if quoted'
 	]
